@@ -1,13 +1,21 @@
-const int SENSOR = 21;
-int sensorVal;
+const int avoidPin = 16;
+const int ledPin = 13;
+int avoidVal;
 
 void setup() {
   Serial.begin(9600);
 
-  pinMode(SENSOR, INPUT);
+  pinMode(avoidPin, INPUT);
+  pinMode(ledPin, OUTPUT);
 }
 
 void loop() {
-  sensorVal = digitalRead(SENSOR);
-  Serial.write(sensorVal);
+  avoidVal = digitalRead(avoidPin);
+  if (avoidVal == LOW) {
+    digitalWrite(ledPin, HIGH);
+    Serial.write("high");
+  } else {
+    digitalWrite(ledPin, LOW);
+    Serial.write("low");
+  }
 }
