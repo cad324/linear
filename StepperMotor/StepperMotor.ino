@@ -12,7 +12,7 @@ const float GEAR_RED = 64;
 const float STEPS_PER_OUT_REV = STEPS_PER_REV * GEAR_RED;
 
 // number of steps required
-int steps_required;
+int steps_required = 100;
 
 //3D coordinate arrays - x,y,z
 int point3D[4];
@@ -35,11 +35,23 @@ AccelStepper stepper3(AccelStepper::FULL4WIRE, 37, 33, 35, 31);
 AccelStepper stepper4(AccelStepper::FULL4WIRE, 52, 48, 50, 46);
 AccelStepper stepper5(AccelStepper::FULL4WIRE, 44, 40, 42, 38);
 AccelStepper stepper6(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
+Stepper stepperMotor1 = Stepper(0, 53, 49, 51, 47);
+Stepper stepperMotor2 = Stepper(0, 45, 41, 43, 39);
+Stepper stepperMotor3 = Stepper(0, 37, 33, 35, 31);
+Stepper stepperMotor4 = Stepper(0, 52, 48, 50, 46);
+Stepper stepperMotor5 = Stepper(0, 44, 40, 42, 38);
+Stepper stepperMotor6 = Stepper(0, 36, 32, 34, 30);
 MultiStepper steppers;
 
 void setup() {
   Serial.begin(9600);
-  int speed_max = 500;
+  int speed_max = 1000;
+  stepperMotor1.setSpeed(speed_max);
+  stepperMotor2.setSpeed(speed_max);
+  stepperMotor3.setSpeed(speed_max);
+  stepperMotor4.setSpeed(speed_max);
+  stepperMotor5.setSpeed(speed_max);
+  stepperMotor6.setSpeed(speed_max);
   stepper1.setMaxSpeed(speed_max);
   stepper2.setMaxSpeed(speed_max);
   stepper3.setMaxSpeed(speed_max);
@@ -48,29 +60,53 @@ void setup() {
   stepper6.setMaxSpeed(speed_max);
   steppers.addStepper(stepper1);
   steppers.addStepper(stepper2);
-//  steppers.addStepper(stepper3);
 //  steppers.addStepper(stepper4);
 //  steppers.addStepper(stepper5);
 //  steppers.addStepper(stepper6);
 }
 
 void loop() {
-  long positions[2]; // Array of desired stepper positions
+
   
-  positions[0] = 1000;
-  positions[1] = 50;
-  steppers.moveTo(positions);
-//  stepper1.runSpeedToPosition();
-  steppers.runSpeedToPosition(); // Blocks until all are in position
-  delay(500);
+//  long positions[2]; // Array of desired stepper positions
+//  
+//  positions[0] = 1000;
+//  positions[1] = 50;
+//  steppers.moveTo(positions);
+////  stepper1.runSpeedToPosition();
+//  steppers.runSpeedToPosition(); // Blocks until all are in position
+//  delay(500);
+
+  if (Serial.available() > 0) {
+    int incoming = Serial.read();
+    char incoming_char = (char) incoming;
+    if (incoming_char == '1') {
+      stepUp(stepperMotor1);
+    }
+    if (incoming_char == '2') {
+      stepUp(stepperMotor2);
+    }
+    if (incoming_char == '3') {
+      stepUp(stepperMotor3);
+    }
+    if (incoming_char == '4') {
+      stepUp(stepperMotor4);
+    }
+    if (incoming_char == '5') {
+      stepUp(stepperMotor1);
+    }
+    if (incoming_char == '6') {
+      stepUp(stepperMotor1);
+    }
+  }
   
   // Move to a different coordinate
-  positions[0] = -100;
-  positions[1] = 100;
-  stepper1.moveTo(positions);
-//  stepper1.runSpeedToPosition();
-  steppers.runSpeedToPosition(); // Blocks until all are in position
-  delay(500);
+//  positions[0] = -100;
+//  positions[1] = 100;
+//  steppers.moveTo(positions);
+////  stepper1.runSpeedToPosition();
+//  steppers.runSpeedToPosition(); // Blocks until all are in position
+//  delay(500);
 
   
   // slow – 4-step CW sequence to observe lights on driver board
