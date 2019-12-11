@@ -4,38 +4,37 @@
 AccelStepper stepper1(AccelStepper::FULL4WIRE, 53, 49, 51, 47);
 AccelStepper stepper2(AccelStepper::FULL4WIRE, 45, 41, 43, 39);
 AccelStepper stepper3(AccelStepper::FULL4WIRE, 37, 33, 35, 31);
-AccelStepper stepper4(AccelStepper::FULL4WIRE, 52, 48, 50, 46);
-AccelStepper stepper5(AccelStepper::FULL4WIRE, 44, 40, 42, 38);
-AccelStepper stepper6(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
+AccelStepper stepper4(AccelStepper::FULL4WIRE, 29, 25, 27, 23);
+AccelStepper stepper5(AccelStepper::FULL4WIRE, 52, 48, 50, 46);
+AccelStepper stepper6(AccelStepper::FULL4WIRE, 44, 40, 42, 38);
 AccelStepper stepper7(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
-AccelStepper stepper8(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
-AccelStepper stepper9(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
-AccelStepper stepper10(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
-AccelStepper stepper11(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
-AccelStepper stepper12(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
-AccelStepper stepper13(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
-AccelStepper stepper14(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
-AccelStepper stepper15(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
-AccelStepper stepper16(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
+AccelStepper stepper8(AccelStepper::FULL4WIRE, 28, 24, 26, 22);
+AccelStepper stepper9(AccelStepper::FULL4WIRE, 2, 4, 3, 5);
+AccelStepper stepper10(AccelStepper::FULL4WIRE, 6, 8, 7, 9);
+AccelStepper stepper11(AccelStepper::FULL4WIRE, 53, 49, 51, 47);
+AccelStepper stepper12(AccelStepper::FULL4WIRE, 45, 41, 43, 39);
+AccelStepper stepper13(AccelStepper::FULL4WIRE, 37, 33, 35, 31);
+AccelStepper stepper14(AccelStepper::FULL4WIRE, 29, 25, 27, 23);
+AccelStepper stepper15(AccelStepper::FULL4WIRE, 52, 48, 50, 46);
+AccelStepper stepper16(AccelStepper::FULL4WIRE, 44, 40, 42, 38);
 AccelStepper stepper17(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
-AccelStepper stepper18(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
-AccelStepper stepper19(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
-AccelStepper stepper20(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
-AccelStepper stepper21(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
-AccelStepper stepper22(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
-AccelStepper stepper23(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
-AccelStepper stepper24(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
-AccelStepper stepper25(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
-AccelStepper stepper26(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
+AccelStepper stepper18(AccelStepper::FULL4WIRE, 28, 24, 26, 22);
+AccelStepper stepper19(AccelStepper::FULL4WIRE, 2, 4, 3, 5);
+AccelStepper stepper20(AccelStepper::FULL4WIRE, 6, 8, 7, 9);
+AccelStepper stepper21(AccelStepper::FULL4WIRE, 53, 49, 51, 47);
+AccelStepper stepper22(AccelStepper::FULL4WIRE, 45, 41, 43, 39);
+AccelStepper stepper23(AccelStepper::FULL4WIRE, 37, 33, 35, 31);
+AccelStepper stepper24(AccelStepper::FULL4WIRE, 29, 25, 27, 23);
+AccelStepper stepper25(AccelStepper::FULL4WIRE, 52, 48, 50, 46);
+AccelStepper stepper26(AccelStepper::FULL4WIRE, 44, 40, 42, 38);
 AccelStepper stepper27(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
-AccelStepper stepper28(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
-AccelStepper stepper29(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
-AccelStepper stepper30(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
+AccelStepper stepper28(AccelStepper::FULL4WIRE, 28, 24, 26, 22);
+AccelStepper stepper29(AccelStepper::FULL4WIRE, 2, 4, 3, 5);
+AccelStepper stepper30(AccelStepper::FULL4WIRE, 6, 8, 7, 9);
 
 AccelStepper steppersOne[] = {stepper1, stepper2, stepper3, stepper4, stepper5, stepper6, stepper7, stepper8, stepper9, stepper10};
 AccelStepper steppersTwo[] = {stepper11, stepper12, stepper13, stepper14, stepper15, stepper16, stepper17, stepper18, stepper19, stepper20};
 AccelStepper steppersThree[] = {stepper21, stepper22, stepper23, stepper24, stepper25, stepper26, stepper27, stepper28, stepper29, stepper30};
-
 
 const int LED = 12;
 const int MAX_SPEED = 500;
@@ -104,7 +103,6 @@ void moveMotor(AccelStepper steppers[], int motor, byte incoming) {
   // Move the motor from the current position to the specified depth
   int move_val = constrain(depth - pos, -MAX_EXTENSION, MAX_EXTENSION);
   steppers[motor%10].moveTo(move_val); 
-  steppers[motor%10].run(); 
 }
 
 void setup()
@@ -132,28 +130,35 @@ void loop()
 //    stepper2.run();
 //    stepper3.run();
 
-  if (Serial.available() >= 2) {
-    for (int i = 0; i < 30; i++) {
+// Loop through all of the motors to check their position
+  for (int i = 0; i < 30; i++) {
+    if (Serial.available() >= 2) {
       byte incoming_motor = Serial.read();
       int motor = get_stepper(incoming_motor);
       byte incoming_depth = Serial.read();
       moveMotor(steppersOne, motor, incoming_depth);
-   }
-  }
-  if (Serial1.available() >= 2) {
-    for (int i = 0; i < 30; i++) {
+    }
+    if (Serial1.available() >= 2) {
       byte incoming_motor = Serial1.read();
       int motor = get_stepper(incoming_motor) + 10;
       byte incoming_depth = Serial1.read();
       moveMotor(steppersTwo, motor, incoming_depth);
-   }
-  }
-  if (Serial2.available() >= 2) {
-    for (int i = 0; i < 30; i++) {
+    }
+    if (Serial2.available() >= 2) {
       byte incoming_motor = Serial2.read();
       int motor = get_stepper(incoming_motor) + 20;
       byte incoming_depth = Serial2.read();
       moveMotor(steppersThree, motor, incoming_depth);
-   }
+    }
   }
+
+  // Run all of the motors 
+  for (int i = 0; i < 30; i++) {
+    if (i < 10) {
+      steppersOne[i].run();
+    } else if (i >= 10 && i < 20) {
+      steppersTwo[i-10].run();
+    } else {
+      steppersThree[i-20].run();
+    }
 }
