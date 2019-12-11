@@ -10,6 +10,37 @@ AccelStepper stepper6(AccelStepper::FULL4WIRE, 36, 32, 34, 30);
 AccelStepper steppers[] = {stepper1, stepper2, stepper3, stepper4, stepper5, stepper6};
 
 const int LED = 12;
+const int MAX_EXTENSION = 1000;
+
+// Initialize all motor positions to be 0
+int motor_pos[30] = { 0 };
+
+int get_depth(byte c) {
+  switch (c) {
+    case '0':
+      return 0;
+    case '1':
+      return MAX_EXTENSION / 10;
+    case '2':
+      return 2 * MAX_EXTENSION / 9;
+    case '3':
+      return 3 * MAX_EXTENSION / 9;
+    case '4'
+      return 4 * MAX_EXTENSION / 9;
+    case '5':
+      return 5 * MAX_EXTENSION / 9;
+    case '6':
+      return 6 * MAX_EXTENSION / 9;
+    case '7':
+      return 7 * MAX_EXTENSION / 9;
+    case '8':
+      return 8 * MAX_EXTENSION / 9;
+    case '9':
+      return MAX_EXTENSION;
+    default:
+      Serial.println("Something is wrong on the Kinect side");
+  }
+}
 
 void setup()
 {
@@ -49,15 +80,13 @@ void loop()
   if (Serial.available() >= 30) {
     for (int i = 0; i < 30; i++) {
       byte incoming = Serial.read();
-      if (incoming == '1') {
-        digitalWrite(LED, HIGH);
-        stepper1.moveTo(1000);
-        stepper1.run();
-        steppers[i].moveTo(1000);
-        steppers[i].run();
-      } else {
-        digitalWrite(LED, LOW);
-      }
+      int pos = motor_pos[i];
+      int depth = get_depth(incoming);
+      motor_pos[i] = depth;
+      int move_val = constrain(depth - pos, -MAX_EXTENSION, MAX_EXTENSION);
+//    can this be negative?
+      steppers[i].moveTo(move_val); 
+      steppers[i].run(); 
    }
 
 //    if (incoming_char == '1') {
