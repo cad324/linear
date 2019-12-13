@@ -100,10 +100,10 @@ void loop()
       for (int i = 0; i < 10; i++) {
 //        byte depth = Serial.read();
 //        steppers[i].moveTo(get_depth(depth));
-        byte incoming_motor = Serial.read();
-        int motor = get_stepper(incoming_motor) % 10;
+//        byte incoming_motor = Serial.read();
+//        int motor = get_stepper(incoming_motor) % 10;
         byte incoming_depth = Serial.read();
-        moveMotor(motor, incoming_depth);
+        moveMotor(i, incoming_depth);
       } 
     }
 

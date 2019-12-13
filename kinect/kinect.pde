@@ -2,7 +2,9 @@ import org.openkinect.processing.*;
 import processing.serial.*;
 
 Kinect kinect;
-Serial port;
+Serial portOne;
+Serial portTwo;
+//Serial portThree;
 
 int motor_pos = 0;
 int motors[] = {
@@ -17,8 +19,12 @@ void setup() {
   println(Serial.list());
   
   // Set up the Serial ports
-  port = new Serial(this, Serial.list()[1], 9600);
-  port.bufferUntil(0x03);
+  portOne = new Serial(this, Serial.list()[1], 9600);
+  portTwo = new Serial(this, Serial.list()[2], 9600);
+  //portThree = new Serial(this, Serial.list()[1], 9600);
+  portOne.bufferUntil(0x03);
+  portTwo.bufferUntil(0x03);
+  //portThree.bufferUntil(0x03);
   
   // P3D for rendering something in 3D
   size(640, 480, P3D);
@@ -53,8 +59,16 @@ void draw() {
       // Darker object in closer
       int z = (int) map(b, 0, 255, 9, 0);
       
-      port.write(motors[motor_pos]);
-      port.write(depth[z]);
+      if (motor_pos < 10) {
+        portOne.write(depth[z]);
+      } else if (motor_pos < 20) {
+        portTwo.write(depth[z]);
+      } else {
+        //portThree.write(depth[z]);
+      }
+      
+      //port.write(motors[motor_pos]);
+      //port.write(depth[z]);
       
       fill(b);
       
