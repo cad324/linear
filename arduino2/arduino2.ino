@@ -70,7 +70,7 @@ void setup()
     Serial.begin(9600);
     for (int i = 0; i < 10; i++) {
       steppers[i].setMaxSpeed(MAX_SPEED);
-      steppers[i].setAcceleration(100.0);
+      steppers[i].setAcceleration(200.0);
     }
 }
 
