@@ -15,16 +15,13 @@ AccelStepper stepper10(AccelStepper::FULL4WIRE, 6, 8, 7, 9);
 AccelStepper steppers[] = {stepper1, stepper2, stepper3, stepper4, stepper5, stepper6, stepper7, stepper8, stepper9, stepper10};
 
 const int LED = 12;
-const int LEDDepthError = 14;
-const int LEDMotorError = 16;
 const int MAX_SPEED = 500;
-const int MAX_EXTENSION = 2500;
+const int MAX_EXTENSION = 7000;
 
 // Initialize all motor positions to be 0
 int motor_pos[10] = { 0 };
 
 int get_depth(byte c) {
-  digitalWrite(LEDDepthError, LOW);
   switch (c) {
     case '0':
       return 0;
@@ -47,7 +44,6 @@ int get_depth(byte c) {
     case '9':
       return MAX_EXTENSION;
     default:
-      digitalWrite(LEDDepthError, HIGH);
       Serial.println("Something is wrong on the Kinect side");
   }
 }
@@ -64,9 +60,9 @@ void moveMotor(int motor, byte incoming) {
 
 void setup()
 {
+  // 301 is the portThree
     pinMode(LED, OUTPUT);
-    pinMode(LEDMotorError, OUTPUT);
-    pinMode(LEDDepthError, OUTPUT);
+    digitalWrite(LED, LOW);
     Serial.begin(9600);
     for (int i = 0; i < 10; i++) {
       steppers[i].setMaxSpeed(MAX_SPEED);
@@ -78,7 +74,6 @@ void loop()
 {
 // Loop through all of the motors to check their position
     if (Serial.available() > 18) {
-      digitalWrite(LED, HIGH);
       for (int i = 9; i >= 0; i--) {
         byte incoming_depth = Serial.read();
         moveMotor(i, incoming_depth);

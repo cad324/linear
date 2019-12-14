@@ -14,9 +14,9 @@ void setup() {
   println(Serial.list());
   
   // Set up the Serial ports
-  portOne = new Serial(this, Serial.list()[3], 9600);
-  portTwo = new Serial(this, Serial.list()[2], 9600);
-  portThree = new Serial(this, Serial.list()[1], 9600);
+  portOne = new Serial(this, Serial.list()[2], 9600);
+  portTwo = new Serial(this, Serial.list()[1], 9600);
+  portThree = new Serial(this, Serial.list()[3], 9600);
   portOne.bufferUntil(0x03);
   portTwo.bufferUntil(0x03);
   portThree.bufferUntil(0x03);
@@ -53,7 +53,7 @@ void draw() {
       
       // Map brightness value to a depth
       // Darker object in closer
-      int z = (int) map(b, 0, 255, 9, 0);
+      int z = (int) map(b, 0, 255, 0, 9);
       
       if (motor_pos < 10) {
         portOne.write(depth[z]);
